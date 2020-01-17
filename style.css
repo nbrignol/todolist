@@ -1,9 +1,40 @@
+body {
+	counter-reset: counter-item;
+}
+
 .items {
-	list-style: decimal;
+	list-style: none;
+}
+
+.item:not(.deleted) {
+	counter-increment: counter-item;
+}
+
+.item::before {
+	content: counter(counter-item);
+	background: black;
+	color: white;
+	padding: 0.3em;
+	margin-right: 0.3em;
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+	text-align: center;
+
+}
+.item.deleted::before {
+	content: "-";
+	background: black;
+	color: white;
+}
+
+.item a {
+	padding: 0 0.5em;
+	font-size: 0.6em;
 }
 
 .item.deleted {
-	opacity: 0.5;
+	opacity: 0.3;
 }
 
 .item.deleted a {
