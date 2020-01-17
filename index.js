@@ -1,4 +1,12 @@
-var items = [];
+var items = [
+	{
+		label:"test"
+	},
+	{
+		label:"test 2",
+		deleted: true
+	}
+];
 
 displayItemCounter(items.length);
 
