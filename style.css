@@ -5,3 +5,7 @@
 .item.deleted {
 	opacity: 0.5;
 }
+
+.item.deleted a {
+	display: none;
+}

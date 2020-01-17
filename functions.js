@@ -16,8 +16,12 @@ function displayOneMoreItem(item){
 		console.log(event.target);
 		console.log(item);
 
-		item.deleted = true;
-		event.target.parentNode.classList.add("deleted");
+		var answer = confirm("Êtes-vous sûr de vouloir supprimer " + item.label + " ?");
+
+		if (answer) {
+			item.deleted = true;
+			event.target.parentNode.classList.add("deleted");
+		}
 
 	});
 
