@@ -1,19 +1,6 @@
-var items = [
-	{
-		label: "Acheter des légumes"
-	},
+var items = [];
 
-	{
-		label: "Faire du Javascript"
-	},
-
-	{
-		label: "Faire un peu de PHP"
-	}
-];
-
-var counterElement = document.querySelector(".counter .number");
-counterElement.innerHTML = items.length;
+displayItemCounter(items.length);
 
 var parentElement = document.querySelector(".items");
 parentElement.innerHTML = "";
@@ -33,7 +20,7 @@ formElement.addEventListener("submit", function(event){
 
 	inputElement.value = "";
 	items.push(newItem);
-	counterElement.innerHTML = items.length;
-
+	
+	displayItemCounter(items.length);
 	displayOneMoreItem(newItem);
 })

@@ -10,3 +10,8 @@ function displayOneMoreItem(item){
 	newLi.appendChild(newA);
 	parentElement.appendChild(newLi);
 }
+
+function displayItemCounter(counterValue) {
+	var counterElement = document.querySelector(".counter .number");
+	counterElement.innerHTML = counterValue;
+}
