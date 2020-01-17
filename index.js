@@ -1,12 +1,12 @@
-var items = [
-	{
-		label:"test"
-	},
-	{
-		label:"test 2",
-		deleted: true
-	}
-];
+var items = [];
+
+
+var storedList = localStorage.getItem("list");
+if (storedList) {
+	console.log(storedList);
+	items = JSON.parse(storedList);
+}
+
 
 displayItemCounter(items.length);
 
@@ -28,7 +28,23 @@ formElement.addEventListener("submit", function(event){
 
 	inputElement.value = "";
 	items.push(newItem);
-	
+
+	localStorage.setItem("list", JSON.stringify(items));
+
 	displayItemCounter(items.length);
 	displayOneMoreItem(newItem);
 })
+
+
+var clearElement = document.querySelector('.clearStorage');
+clearElement.addEventListener('click', function(event){
+	var answer = confirm("Etes vous sur ?");
+	
+	if (! answer) {
+		event.preventDefault();
+		return;
+	}
+
+	items=[];
+	localStorage.setItem("list", "[]");
+});

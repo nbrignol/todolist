@@ -21,6 +21,7 @@ function displayOneMoreItem(item){
 		if (answer) {
 			item.deleted = true;
 			event.target.parentNode.classList.add("deleted");
+			localStorage.setItem("list", JSON.stringify(items));
 		}
 
 	});
