@@ -19,17 +19,7 @@ var parentElement = document.querySelector(".items");
 parentElement.innerHTML = "";
 
 for(var i = 0; i < items.length; i++){
-	var newLi = document.createElement("li");
-	newLi.classList.add("item");
-	newLi.innerHTML = items[i].label;
-
-	var newA = document.createElement("a");
-	newA.setAttribute("href", "#")
-	newA.innerHTML = "Supprimer";
-
-	newLi.appendChild(newA);
-	parentElement.appendChild(newLi);
-
+	displayOneMoreItem(items[i]);
 }
 
 var formElement = document.querySelector(".formNewItem");
@@ -42,19 +32,8 @@ formElement.addEventListener("submit", function(event){
 	};
 
 	inputElement.value = "";
-
 	items.push(newItem);
+	counterElement.innerHTML = items.length;
 
-	var newLi = document.createElement("li");
-	newLi.classList.add("item");
-	newLi.innerHTML = newItem.label;
-
-	var newA = document.createElement("a");
-	newA.setAttribute("href", "#")
-	newA.innerHTML = "Supprimer";
-
-	newLi.appendChild(newA);
-	parentElement.appendChild(newLi);
-
-
+	displayOneMoreItem(newItem);
 })
