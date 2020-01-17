@@ -31,3 +31,30 @@ for(var i = 0; i < items.length; i++){
 	parentElement.appendChild(newLi);
 
 }
+
+var formElement = document.querySelector(".formNewItem");
+formElement.addEventListener("submit", function(event){
+	event.preventDefault();
+
+	var inputElement = document.querySelector(".formNewItem input[name=newItem]");
+	var newItem = {
+		label: inputElement.value
+	};
+
+	inputElement.value = "";
+
+	items.push(newItem);
+
+	var newLi = document.createElement("li");
+	newLi.classList.add("item");
+	newLi.innerHTML = newItem.label;
+
+	var newA = document.createElement("a");
+	newA.setAttribute("href", "#")
+	newA.innerHTML = "Supprimer";
+
+	newLi.appendChild(newA);
+	parentElement.appendChild(newLi);
+
+
+})
