@@ -21,7 +21,7 @@ function displayOneMoreItem(item){
 		if (answer) {
 			item.deleted = true;
 			event.target.parentNode.classList.add("deleted");
-			localStorage.setItem("list", JSON.stringify(items));
+			storeList(items);
 		}
 
 	});
@@ -33,4 +33,23 @@ function displayOneMoreItem(item){
 function displayItemCounter(counterValue) {
 	var counterElement = document.querySelector(".counter .number");
 	counterElement.innerHTML = counterValue;
+}
+
+
+function storeList(list){
+	localStorage.setItem("list", JSON.stringify(list));
+}
+
+function resetStoredList(list){
+	localStorage.setItem("list", "[]");
+}
+
+function getStoredList(){
+	var data = localStorage.getItem("list");
+
+	if (!data){
+		return [];
+	}
+
+	return JSON.parse(data);
 }

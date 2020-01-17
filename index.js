@@ -1,11 +1,4 @@
-var items = [];
-
-
-var storedList = localStorage.getItem("list");
-if (storedList) {
-	console.log(storedList);
-	items = JSON.parse(storedList);
-}
+var items = getStoredList();
 
 
 displayItemCounter(items.length);
@@ -29,8 +22,8 @@ formElement.addEventListener("submit", function(event){
 	inputElement.value = "";
 	items.push(newItem);
 
-	localStorage.setItem("list", JSON.stringify(items));
-
+	storeList(items);
+	
 	displayItemCounter(items.length);
 	displayOneMoreItem(newItem);
 })
@@ -46,5 +39,5 @@ clearElement.addEventListener('click', function(event){
 	}
 
 	items=[];
-	localStorage.setItem("list", "[]");
+	resetStoredList();
 });
