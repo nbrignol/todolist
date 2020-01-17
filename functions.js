@@ -7,6 +7,10 @@ function displayOneMoreItem(item){
 		newLi.classList.add("deleted");
 	}
 
+	if (item.isImportant) {
+		newLi.classList.add("important");
+	}
+
 	var newA = document.createElement("a");
 	newA.setAttribute("href", "#")
 	newA.innerHTML = "Supprimer";

@@ -15,8 +15,10 @@ formElement.addEventListener("submit", function(event){
 	event.preventDefault();
 
 	var inputElement = document.querySelector(".formNewItem input[name=newItem]");
+	var isImportantElement = document.querySelector(".formNewItem input[name=isImportant]");
 	var newItem = {
-		label: inputElement.value
+		label: inputElement.value,
+		isImportant: isImportantElement.checked
 	};
 
 	inputElement.value = "";
